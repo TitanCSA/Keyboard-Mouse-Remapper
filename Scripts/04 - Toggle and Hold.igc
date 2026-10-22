@@ -1,0 +1,6 @@
+ui {title("Toggle a held key"); description("F8 toggles a held Shift key. Stop restores passthrough.");}
+int enabled;
+main {
+ if(event_press(KEY_F8)) enabled = !enabled;
+ if(enabled) set_val(KEY_LSHIFT,100);
+}

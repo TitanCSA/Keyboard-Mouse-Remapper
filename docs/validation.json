@@ -1,0 +1,38 @@
+{
+    "Schema":  1,
+    "ApplicationVersion":  "1.0.0",
+    "Passed":  true,
+    "Architecture":  "Windows x64 native C++17",
+    "ExecutableSHA256":  "aff46c9608bfde1a872019e81ef4cb2f11942584be8bb18b0a11986f5ae0ef5f",
+    "OfflineCTestSuites":  8,
+    "ScriptExamples":  10,
+    "UiChecks":  9,
+    "EngineStressPackets":  120000,
+    "NotificationStressEvents":  100000,
+    "ActiveEngineAverageMicroseconds":  1.82852,
+    "PerformanceScope":  "Release engine, memory output sink; excludes driver, physical hardware, GUI and Windows delivery",
+    "DriverInstallerVersion":  "1.0.1.0",
+    "SignedKernelVersion":  "1.0.0.0",
+    "SdkVersion":  "1.0.0.0",
+    "SdkSourcesUnmodified":  true,
+    "HostCaptureStarted":  false,
+    "NewCabRequired":  false,
+    "WindowsConsumerTest":  {
+                                "Platform":  "Dedicated Hyper-V Windows 11 VM",
+                                "Input":  "Existing VHF keyboard/mouse fixture",
+                                "Consumer":  "Windows Raw Input",
+                                "SameExecutableAsRelease":  true,
+                                "KeyRemap":  true,
+                                "PhysicalDestinationPreserved":  true,
+                                "Release":  true,
+                                "MouseYInversion":  true,
+                                "MouseToKeyboard":  true,
+                                "TimerMacro":  true,
+                                "StopRestoredPhysicalInput":  true
+                            },
+    "Limitations":  [
+                        "Controlled virtual devices; not certification of every physical device or Windows build",
+                        "No end-to-end hardware latency or zero-latency claim",
+                        "Observation uses capture and starts the shared two-hour per-boot demo"
+                    ]
+}

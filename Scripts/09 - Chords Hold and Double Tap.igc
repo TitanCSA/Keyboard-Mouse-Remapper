@@ -1,0 +1,7 @@
+ui {title("Combined triggers"); slider duration("Hold threshold",100,1000,350,"ms");}
+combo pulse {set_val(KEY_F9,100);wait(30);set_val(KEY_F9,0);}
+main {
+ if(event_press(MOUSE_X2) && get_ival(KEY_LCTRL)) combo_run(pulse);
+ if(double_tap(KEY_F7,250)) combo_run(pulse);
+ if(get_ival(KEY_F10) && get_ptime(KEY_F10)>=duration) set_val(KEY_LSHIFT,100);
+}

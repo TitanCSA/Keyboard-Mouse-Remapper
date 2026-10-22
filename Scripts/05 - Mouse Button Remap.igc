@@ -1,0 +1,6 @@
+ui {
+ title("Mouse side button");
+ description("The first side button becomes Space, through the keyboard endpoint.");
+ toggle enabled("Use side button as Space",true);
+}
+main {if(enabled) remap(MOUSE_X1,KEY_SPACE);}

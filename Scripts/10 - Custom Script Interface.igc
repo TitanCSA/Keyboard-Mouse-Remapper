@@ -1,0 +1,17 @@
+ui {
+ title("Everyday keyboard and mouse");
+ description("Change live settings without editing or recompiling the script.");
+ group("Keyboard");
+ toggle remap_a("A becomes B",true);
+ select side_button("Mouse side button",0) {0:"Keep original";1:"Space";2:"Enter";};
+ group("Mouse");
+ slider speed("Sensitivity",10,400,100,"%");
+ toggle inverted("Invert vertical movement",false);
+}
+main {
+ if(remap_a) remap(KEY_A,KEY_B);
+ if(side_button==1) remap(MOUSE_X1,KEY_SPACE);
+ if(side_button==2) remap(MOUSE_X1,KEY_ENTER);
+ sensitivity(MOUSE_X,speed);sensitivity(MOUSE_Y,speed);
+ if(inverted)invert(MOUSE_Y);
+}

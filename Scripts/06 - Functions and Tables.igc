@@ -1,0 +1,4 @@
+ui {title("Mouse speed modes"); select mode("Speed",1) {0:"Slow";1:"Normal";2:"Fast";};}
+int speeds[] = {50,100,200};
+function apply_speed(axis, percent) { sensitivity(axis,percent); }
+main {apply_speed(MOUSE_X,speeds[mode]);apply_speed(MOUSE_Y,speeds[mode]);}

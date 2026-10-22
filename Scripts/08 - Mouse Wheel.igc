@@ -1,0 +1,6 @@
+ui {
+ title("Wheel direction and scale");
+ toggle reversed("Reverse vertical wheel",true);
+ slider scale("Wheel scale",25,400,100,"%");
+}
+main {sensitivity(MOUSE_WHEEL,scale);if(reversed)invert(MOUSE_WHEEL);}

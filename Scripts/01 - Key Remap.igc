@@ -1,0 +1,7 @@
+// Physical US scan-code positions. The destination remains usable.
+ui {
+ title("Key remap");
+ description("A also becomes B. Your physical B key remains usable.");
+ toggle enabled("Enable remap", true);
+}
+main { if(enabled) remap(KEY_A, KEY_B); }

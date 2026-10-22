@@ -1,0 +1,30 @@
+# Third-party notices
+
+`App/ThirdParty/json.hpp` is the unmodified single-header JSON for Modern C++
+library, version 3.12.0, copyright Niels Lohmann and contributors, MIT licensed.
+Its license is included in `App/ThirdParty/json.LICENSE.MIT` in source and
+`JSON-LICENSE.txt` in the portable release. The pinned header
+SHA-256 is `aaf127c04cb31c406e5b04a63f1ae89369fccde6d8fa7cdda1ed4f32dfc5de63`,
+published in the [official release](https://github.com/nlohmann/json/releases/tag/v3.12.0).
+It is used for local visual metadata and test reports, not on the input path.
+
+`Interceptor/Interceptor.h` and `Interceptor.cpp` are the public user-mode C++17
+SDK from [TitanCSA/Interceptor-Keyboard-Mouse](https://github.com/TitanCSA/Interceptor-Keyboard-Mouse),
+version 1.0.0.0, copyright 2026 TitanCSA, MIT licensed. Kernel driver source,
+private signing tools and credentials are not part of this repository.
+
+The `InterceptorSetup.exe` release asset is the unmodified installer from that
+project. Its embedded driver package is signed by Microsoft Windows Hardware
+Compatibility Publisher. This signature does not sign the remapper application
+or the installer EXE. The kernel binary's separate demo license is reproduced
+in [DRIVER-BINARY-LICENSE.txt](DRIVER-BINARY-LICENSE.txt). Installing the driver
+is an explicit user action, separate from opening or editing scripts.
+
+IGC is an independent language inspired by the public GPC programming model.
+It includes original implementation code and uses no Cronus firmware, compiler,
+SDK, script library or proprietary runtime. Cronus, GPC and other third-party names are their owners' names or
+trademarks. This project is not affiliated with or endorsed by those owners.
+
+The interception workflow follows [oblitum/Interception](https://github.com/oblitum/Interception).
+This application uses the distinct Interceptor Keyboard Mouse SDK and is
+not ABI compatible with the original Interception driver.

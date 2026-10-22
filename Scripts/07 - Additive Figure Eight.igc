@@ -1,0 +1,13 @@
+ui {
+ title("Mouse figure eight");
+ description("Hold left Ctrl and the right mouse button. Motion adds raw counts to physical movement.");
+ slider amplitude("Movement per tick",0,20,3,"counts");
+ slider period("Period",200,4000,1200,"ms");
+}
+main {
+ if(get_ival(KEY_LCTRL) && get_ival(MOUSE_RIGHT)) {
+  tick(8);
+  add_val(MOUSE_X, sin((get_runtime()%period)*360/period,amplitude));
+  add_val(MOUSE_Y, sin((get_runtime()%period)*720/period,amplitude));
+ }
+}

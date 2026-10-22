@@ -1,0 +1,10 @@
+// F6 sends a short H-E-L-L-O sequence through the keyboard filter.
+ui { title("Timed typing macro"); slider gap("Delay between keys",10,300,40,"ms"); }
+combo hello {
+ set_val(KEY_H,100); wait(gap); set_val(KEY_H,0); wait(gap);
+ set_val(KEY_E,100); wait(gap); set_val(KEY_E,0); wait(gap);
+ set_val(KEY_L,100); wait(gap); set_val(KEY_L,0); wait(gap);
+ set_val(KEY_L,100); wait(gap); set_val(KEY_L,0); wait(gap);
+ set_val(KEY_O,100); wait(gap); set_val(KEY_O,0);
+}
+main { if(event_press(KEY_F6)) combo_run(hello); remap(KEY_F6,KEY_F6); }

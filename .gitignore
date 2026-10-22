@@ -1,0 +1,11 @@
+bin/
+obj/
+dist/
+App/.build/
+.vs/
+*.user
+*.suo
+*.pdb
+*.log
+*.tmp
+*.igc.settings.json

@@ -1,0 +1,26 @@
+name: Build and test native Windows application
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows-x64:
+    runs-on: windows-2022
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Build and run offline regression suites
+        shell: powershell
+        run: .\Build.ps1
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: keyboard-mouse-remapper-windows-x64
+          path: |
+            App/.build/Release/bin/KeyboardMouseRemapper.exe
+            App/.build/Release/bin/ui-tests.json
+            App/.build/Release/Testing/Temporary/LastTest.log
+          if-no-files-found: error

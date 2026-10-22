@@ -1,0 +1,15 @@
+ui {
+ title("Mouse settings");
+ slider speed("Mouse speed", 0, 400, 100, "%");
+ toggle invert_x("Invert horizontal movement", false);
+ toggle invert_y("Invert vertical movement", false);
+ number noise("Ignore movement up to", 0, 20, 0, "counts");
+}
+main {
+ deadzone(MOUSE_X, noise);
+ deadzone(MOUSE_Y, noise);
+ sensitivity(MOUSE_X, speed);
+ sensitivity(MOUSE_Y, speed);
+ if(invert_x) invert(MOUSE_X);
+ if(invert_y) invert(MOUSE_Y);
+}
