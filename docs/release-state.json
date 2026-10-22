@@ -1,0 +1,12 @@
+{
+    "Schema":  1,
+    "Version":  "1.0.1",
+    "Driver":  "Interceptor-Keyboard-Mouse",
+    "DriverVersion":  "1.0.3.0",
+    "DriverRelease":  "v1.0.3.0-demo",
+    "SdkVersion":  "1.0.0.0",
+    "InstallerSHA256":  "5386ef57e33d0fa498bef1e17cab9a91048fdc384023a995615900ef78f93ecf",
+    "SignedKernelSHA256":  "26c3fe5dd127c5898f5d90313bbf0d9c1f574b8624f0846735cfff286bfa8f08",
+    "TrialSeconds":  7200,
+    "ClockRequired":  true
+}
