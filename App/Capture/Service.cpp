@@ -16,7 +16,7 @@ std::string Explain(const std::exception& e){
  if(!sys)return message;const auto code=sys->code().value();message+=" [Windows "+std::to_string(code)+"]";
  if(code==ERROR_FILE_NOT_FOUND||code==ERROR_SERVICE_DOES_NOT_EXIST)message+=". Use Driver setup to install the Keyboard & Mouse edition, then restart if requested.";
  if(code==ERROR_ACCESS_DENIED)message+=". Administrator rights are required.";
- if(code==IC_ERROR_TRIAL_EXPIRED)message+=". The two-hour per-boot driver demo has expired. Restart Windows.";
+ if(code==IC_ERROR_TRIAL_EXPIRED)message+=". The one-hour per-boot driver demo has expired. Restart Windows.";
  if(code==ERROR_OPERATION_ABORTED)message+=". Capture was revoked. Passthrough is restored; release the emergency chord and explicitly Apply again.";
  if(code==ERROR_BUSY||code==ERROR_SHARING_VIOLATION)message+=". Close other keyboard/mouse capture applications.";
  return message;

@@ -18,7 +18,7 @@ libraries remain normal OS dependencies. Tests do not open the host driver.
 `--demo`, `--check-script file.igc` and `--ui-self-test report.json` are offline.
 
 Packaging requires the original, SHA-256-pinned **Interceptor Keyboard & Mouse
-1.0.3.0** GUI installer with signed kernel **1.0.3.0** and SDK **1.0.0.0**. It rejects other
+1.0.4.0** GUI installer with signed kernel **1.0.4.0** and SDK **1.0.0.0**. It rejects other
 editions, modified setup files, CLR executables and ASan builds. The original
 setup is copied unchanged. It produces a portable ZIP, standalone application,
 one `InterceptorSetup.exe`, and `SHA256SUMS.txt` under `App/.build/dist/`.

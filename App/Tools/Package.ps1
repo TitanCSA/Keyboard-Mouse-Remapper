@@ -2,11 +2,11 @@
 param([string]$BuildDirectory,[string]$DriverInstaller)
 $ErrorActionPreference='Stop'
 $root=Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
-$version='1.0.1'
-$driverRelease='1.0.3.0-demo'
-$driverKernelVersion='1.0.3.0'
-$signedKernelSHA256='26c3fe5dd127c5898f5d90313bbf0d9c1f574b8624f0846735cfff286bfa8f08'
-$expectedInstaller='5386ef57e33d0fa498bef1e17cab9a91048fdc384023a995615900ef78f93ecf'
+$version='1.0.2'
+$driverRelease='1.0.4.0-demo'
+$driverKernelVersion='1.0.4.0'
+$signedKernelSHA256='b3c71a258d5eccfb13cf32d8f9058e44426a66f998af2eddde060250a36b3a92'
+$expectedInstaller='3ff142870e3e7396ebf731464c891e17328964d051b614b56e803c9f56c24991'
 if(!$BuildDirectory){$BuildDirectory=Join-Path $root 'App\.build\Release'}
 $out=Join-Path $BuildDirectory 'bin'
 $dist=Join-Path $root 'App\.build\dist'
@@ -14,9 +14,9 @@ $stage=Join-Path $root ('App\.build\Package-'+[Guid]::NewGuid().ToString('N'))
 $folder=Join-Path $stage ('Keyboard-Mouse-Remapper-'+$version+'-win-x64')
 $null=New-Item -ItemType Directory -Path $dist,$folder -Force
 if(!$DriverInstaller){
-    throw 'Supply the verified installer for Microsoft-signed device kernel 1.0.3.0.'
+    throw 'Supply the verified installer for Microsoft-signed device kernel 1.0.4.0.'
 }
-if((Get-FileHash -LiteralPath $DriverInstaller -Algorithm SHA256).Hash.ToLowerInvariant() -cne $expectedInstaller){throw 'The driver installer must match the pinned Microsoft-signed device kernel 1.0.3.0 release.'}
+if((Get-FileHash -LiteralPath $DriverInstaller -Algorithm SHA256).Hash.ToLowerInvariant() -cne $expectedInstaller){throw 'The driver installer must match the pinned Microsoft-signed device kernel 1.0.4.0 release.'}
 $installerInfo=[Diagnostics.FileVersionInfo]::GetVersionInfo($DriverInstaller)
 if($installerInfo.ProductName -cne 'InterceptorKeyboardMouse'){throw 'The installer must identify the Interceptor Keyboard Mouse product, not classic Interceptor.'}
 $application=Join-Path $out 'KeyboardMouseRemapper.exe'

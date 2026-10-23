@@ -33,7 +33,7 @@ The app is a standalone native EXE; no .NET runtime or application DLL is needed
 5. **Stop** removes the script and restores physical input. Observation continues.
    Close the application to release capture completely.
 
-**The driver demo allows two hours per Windows boot. Observation starts a capture,
+**The driver demo allows one hour per Windows boot. Observation starts a capture,
 so the allowance starts when this application opens normally**, even with no script.
 The allowance is shared with other apps using this driver edition. Restart Windows
 for another allowance. For the unrestricted driver, DM **titancsa** on Discord.
