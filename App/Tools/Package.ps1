@@ -2,11 +2,11 @@
 param([string]$BuildDirectory,[string]$DriverInstaller)
 $ErrorActionPreference='Stop'
 $root=Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
-$version='1.0.2'
-$driverRelease='1.0.4.0-demo'
-$driverKernelVersion='1.0.4.0'
-$signedKernelSHA256='b3c71a258d5eccfb13cf32d8f9058e44426a66f998af2eddde060250a36b3a92'
-$expectedInstaller='3ff142870e3e7396ebf731464c891e17328964d051b614b56e803c9f56c24991'
+$version='1.0.3'
+$driverRelease='1.0.5.0-demo'
+$driverKernelVersion='1.0.5.0'
+$signedKernelSHA256='562a52d2ef70867682a37eaeb1ad87cbca6a7bd186df8f272920ba7ddd834794'
+$expectedInstaller='54bdd2cb3e5319eea2588fec7579721b0ce7b38ab1acfc888c90b48798f2ac83'
 if(!$BuildDirectory){$BuildDirectory=Join-Path $root 'App\.build\Release'}
 $out=Join-Path $BuildDirectory 'bin'
 $dist=Join-Path $root 'App\.build\dist'
@@ -14,9 +14,9 @@ $stage=Join-Path $root ('App\.build\Package-'+[Guid]::NewGuid().ToString('N'))
 $folder=Join-Path $stage ('Keyboard-Mouse-Remapper-'+$version+'-win-x64')
 $null=New-Item -ItemType Directory -Path $dist,$folder -Force
 if(!$DriverInstaller){
-    throw 'Supply the verified installer for Microsoft-signed device kernel 1.0.4.0.'
+    throw 'Supply the verified installer for Microsoft-signed device kernel 1.0.5.0.'
 }
-if((Get-FileHash -LiteralPath $DriverInstaller -Algorithm SHA256).Hash.ToLowerInvariant() -cne $expectedInstaller){throw 'The driver installer must match the pinned Microsoft-signed device kernel 1.0.4.0 release.'}
+if((Get-FileHash -LiteralPath $DriverInstaller -Algorithm SHA256).Hash.ToLowerInvariant() -cne $expectedInstaller){throw 'The driver installer must match the pinned Microsoft-signed device kernel 1.0.5.0 release.'}
 $installerInfo=[Diagnostics.FileVersionInfo]::GetVersionInfo($DriverInstaller)
 if($installerInfo.ProductName -cne 'InterceptorKeyboardMouse'){throw 'The installer must identify the Interceptor Keyboard Mouse product, not classic Interceptor.'}
 $application=Join-Path $out 'KeyboardMouseRemapper.exe'
@@ -55,6 +55,6 @@ try{
 $assets=@($zipPath,(Join-Path $dist 'KeyboardMouseRemapper.exe'),(Join-Path $dist 'InterceptorSetup.exe'))
 $lines=@(foreach($path in $assets){(Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant()+'  '+[IO.Path]::GetFileName($path)})
 [IO.File]::WriteAllText((Join-Path $dist 'SHA256SUMS.txt'),(($lines -join [char]10)+[char]10),(New-Object Text.UTF8Encoding($false)))
-$manifest=[ordered]@{Version=$version;CreatedUtc=[DateTime]::UtcNow.ToString('o');DriverSource='https://github.com/TitanCSA/Interceptor-Keyboard-Mouse';DriverReleaseURL=('https://github.com/TitanCSA/Interceptor-Keyboard-Mouse/releases/tag/v'+$driverRelease);DriverRelease=$driverRelease;DriverKernelVersion=$driverKernelVersion;SignedKernelSHA256=$signedKernelSHA256;SdkVersion='1.0.0.0';InstallerProductVersion=$installerInfo.ProductVersion;InstallerFileVersion=$installerInfo.FileVersion;InstallerSHA256=$expectedInstaller;Assets=@(foreach($path in $assets){[ordered]@{Name=[IO.Path]::GetFileName($path);Path=$path;SHA256=(Get-FileHash -LiteralPath $path).Hash.ToLowerInvariant();Size=(Get-Item -LiteralPath $path).Length}})}
+$manifest=[ordered]@{Version=$version;CreatedUtc=[DateTime]::UtcNow.ToString('o');DriverSource='https://github.com/TitanCSA/Interceptor-Keyboard-Mouse';DriverReleaseURL=('https://github.com/TitanCSA/Interceptor-Keyboard-Mouse/releases/tag/v'+$driverRelease);DriverRelease=$driverRelease;DriverKernelVersion=$driverKernelVersion;SignedKernelSHA256=$signedKernelSHA256;SdkVersion='1.0.5.0';InstallerProductVersion=$installerInfo.ProductVersion;InstallerFileVersion=$installerInfo.FileVersion;InstallerSHA256=$expectedInstaller;Assets=@(foreach($path in $assets){[ordered]@{Name=[IO.Path]::GetFileName($path);Path=$path;SHA256=(Get-FileHash -LiteralPath $path).Hash.ToLowerInvariant();Size=(Get-Item -LiteralPath $path).Length}})}
 $manifest|ConvertTo-Json -Depth 6|Set-Content -LiteralPath (Join-Path $dist 'package-manifest.json') -Encoding UTF8
 Write-Host ('Native portable application and verified Microsoft-signed driver installer ready in '+$dist)

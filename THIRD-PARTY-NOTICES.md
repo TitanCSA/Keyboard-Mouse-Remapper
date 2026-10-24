@@ -10,7 +10,7 @@ It is used for local visual metadata and test reports, not on the input path.
 
 `Interceptor/Interceptor.h` and `Interceptor.cpp` are the public user-mode C++17
 SDK from [TitanCSA/Interceptor-Keyboard-Mouse](https://github.com/TitanCSA/Interceptor-Keyboard-Mouse),
-version 1.0.0.0, copyright 2026 TitanCSA, MIT licensed. Kernel driver source,
+version 1.0.5.0, copyright 2026 TitanCSA, MIT licensed. Kernel driver source,
 private signing tools and credentials are not part of this repository.
 
 The `InterceptorSetup.exe` release asset is the unmodified installer from that
