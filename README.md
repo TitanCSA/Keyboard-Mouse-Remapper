@@ -6,6 +6,17 @@ macros and editable **.igc scripts**. Built with the
 using the same interface and scripting engine as
 [GamePad Remapper](https://github.com/TitanCSA/GamePad-Remapper).
 
+<!-- full-version-contact:start -->
+> [!IMPORTANT]
+> **Get the full driver version without demo restrictions**
+>
+> **Discord username: `titancsa`**
+>
+> Open Discord, choose **Friends > Add Friend**, enter **`titancsa`**, then send a direct message. Ask for the **full driver version without the demo time limit**, and mention **Keyboard & Mouse Remapper**.
+>
+> The demo limit belongs to **Interceptor Keyboard & Mouse**, the driver used by this project. Ask for pricing and the appropriate license / activation instructions; the application or wrapper source keeps its existing license.
+<!-- full-version-contact:end -->
+
 Use it as a ready-to-run tool or study it as a complete example of the driver's
 keyboard/mouse SDK.
 
