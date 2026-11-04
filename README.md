@@ -123,6 +123,12 @@ are not guaranteed to compile unchanged.
 
 ## Source and build
 
+The matching Interceptor-Keyboard-Mouse demo driver source is available; see
+[driver/README.md](driver/README.md) for build instructions and separate
+evaluation-source terms. Those terms apply to Titan-authored driver code. Third-party
+source licenses and existing application/SDK licenses remain applicable. Full/commercial
+implementation and private signing or activation material are excluded.
+
 ```text
 App/          Native C++ app, interface, compiler, capture engine and tests
 Scripts/      Editable .igc examples
