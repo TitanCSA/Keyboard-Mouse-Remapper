@@ -3,7 +3,11 @@
 <!-- simple-start:start -->
 Change what your keyboard keys or mouse buttons do.
 
-**Start here.** Install the driver included with the ZIP, open the app and try one example from Scripts.
+[First steps](#first-steps) · [Develop](#source-and-build) · [Maintain](https://github.com/TitanCSA/sdk-packages/blob/main/CONTRIBUTING.md)
+
+## First steps
+
+Install the driver included with the ZIP, open the app and try one example from Scripts.
 <!-- simple-start:end -->
 
 <!-- full-version-contact:start -->
